@@ -1,0 +1,3 @@
+.packing_list .item.checked {
+  text-decoration: line-through;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #button {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <h1 class="logo">
+        <a href="index.html">
+          <img src="images/logo_w.png" alt="써브웨이">
+        </a>
+      </h1>
+      <nav class="gnb_wrap">
+        <ul class="gnb">
+          <li><a href="about.html">about</a></li>
+        </ul>
+      </nav>
+      <!-- 절대주소: 외부사이트를 새창으로 띄울 때 -->
+      <a href="https://www.naver.com" target="_blank" title="새창 열림">네이버</a>
+      <a href="#container">메인 컨텐츠로 이동</a>
+      <a href="#footer">푸터로 이동</a>
+    </header>
+    <main id="container" style="height:1500px; border:solid 10px red;">메인&amp;컨ㆍ텐·츠</main>
+    <fotter id="footer">
+      <!-- &lt;text&gt; 입력하면 <text>로 보여진다. -->
+      푸&nbsp;&nbsp;&nbsp;&nbsp;터&lt;입니다.&gt;
+      <br>
+      <button id="button"><a href="#header">top</a></button>
+    </fotter>
+  </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+:root {
+  --point--color1: #ed6d00;
+  --point--color2: #dd3175;
+  --txt-color-400: #999;
+  --txt-color-500: #8d8d8d;
+  --txt-color-600: #000;
+}
+
+#wrap {
+  height: 2000px;
+}
+
+.main_live  {
+  padding: 100px 0;
+}
+.main_live .inner {
+  padding: 0 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+
+.main_tit {
+  font-size: 36px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--txt-color-600);
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+.main_live .swiper {
+  padding-bottom: 115px;
+}
+.main_live .swiper a {
+  display: block;
+  /* border: 1px solid red; */
+  /* 16:9 비율로 만들어 안에 img를 postiion으로 겹치면 됨 */
+  padding-top: 56.25%;
+  position: relative;
+  /* a가 img의 부모이기 때문에 이미지가 커질 때 밖으로 나오는 것을 가리게 해줌 */
+  overflow: hidden;
+}
+.main_live .swiper a:hover img {
+  transform: scale(1.1);
+}
+.main_live .swiper a::before {
+  content: '';
+  position: absolute;
+  /* img도 absolute 상태 이기때문에 z-index 지정하여 위로 올라오게 함 */
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  background: var(--point--color2) url(../images/ico_instagram.png) no-repeat 50% 50% / 20px;
+}
+
+.main_live .swiper img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s;
+}
+
+.main_live .swiper .txt_wrap {
+  /* .txt_wrap에 배경색이 들어가는 경우가 많아 margin이 아닌 padding 사용 */
+  padding-top: 30px;
+}
+.main_live .swiper .txt_wrap p {
+  font-size: 18px;
+  color: var(--txt-color-600);
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  margin-top: 15px;
+}
+/* .swiper를 안붙이면 선택자 우선순위가밀려 margin 적용 안됨 */
+.main_live .swiper .swiper-pagination span {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+}
+.main_live .swiper-pagination .swiper-pagination-bullet-active {
+  background: #000;
+}
+
+
+/* 모바일 분기점 */
+@media (max-width: 767px) {
+  .main_live .inner {
+    padding-right: 0;
+  }
+  .main_live .swiper-slide {
+    width: calc((100% - 50px));
+  }
+}

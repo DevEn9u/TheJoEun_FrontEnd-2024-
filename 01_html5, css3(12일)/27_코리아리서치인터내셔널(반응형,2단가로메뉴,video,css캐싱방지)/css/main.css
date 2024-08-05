@@ -1,0 +1,387 @@
+:root {
+  --point--color1: #f9c900;
+  --point--color2: #907354;
+  --txt-color-400: #8f98AC;
+  --txt-color-500: #77797E;
+  --txt-color-600: #212121;
+}
+
+#wrap {
+  height: 3500px;
+}
+
+/* header 디자인 */
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+#header .inner {
+  /* 1920은 일반적으로 안 적어도 되지만 큰 모니터에서 좌우가 너무 넓어지는 것을 방지하기 위함 */
+  max-width: 1920px;
+  /* 태블릿 여백 미리 줘서 창을 줄었을 때 안붙게 함 */
+  padding: 0 20px;
+  height: 100px;
+  /* border: 2px solid blue; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header .logo {
+  width: 146px;
+  /* relative는 제자리 띄우기로 많이 쓰임 */
+  position: relative;
+  z-index: 10;
+}
+#header .logo a {
+  display: block;
+  height: 35px;
+  /* border: 2px solid yellow; */
+  background: url(/images/logo_w.svg) no-repeat left top / 100%;
+}
+#header .gnb_wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* 서브메뉴(.depth2)의 기준이므로 100%로 늘려야 .depth2를 늘릴 수 있음 */
+  width: 100%;
+  /* .gnb 가운데 정렬 */
+  display: flex;
+  justify-content: center;
+}
+#header .gnb {
+  display: flex;
+}
+#header .gnb>li {
+  padding: 0 45px;
+}
+#header .gnb>li>a {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 100px;
+  position: relative;
+}
+
+#header .gnb>li>a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  /* scale 효과가 있으므로 transform 대신 margin으로 중앙 정렬 */
+  margin-left: -12px;
+  width: 24px;
+  height: 24px;
+  background: url(/images/on.png);
+  transform: scale(0);
+  z-index: 10;
+}
+#header .gnb>li:hover>a::after {
+  transform: scale(1);
+}
+#header .m_gnb_wrap {
+  display: none;
+}
+
+/* 서브메뉴 디자인 */
+
+#header .gnb .depth2 {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 100%;
+  height: 100px;
+  background: #f9f9f9;
+  display: none;
+  /* border: 2px solid red; */
+}
+#header .gnb>li:hover .depth2 {
+  /* .gnb .depth2에서 flex를 지정하게 되면 후에 선언되는 block에 의해 flex가 사라지므로 hover했을 때 나타날 때 flex로 나타나게 함 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 50px;
+}
+#header .gnb .depth2 a {
+  transition: all 0.3s;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+#header .gnb .depth2 a:hover {
+  color: rgba(0, 0, 0, 1);
+}
+#header .open_btn {
+  display: none;
+}
+/* 언어 메뉴 */
+#header .lang_wrap {
+  /* border: 3px solid black; */
+    /* relative는 제자리 띄우기로 많이 쓰임 */
+  position: relative;
+  z-index: 10;
+  display: flex;
+  gap: 0 50px;
+  align-items: center;
+}
+#header .lang {
+  display: flex;
+}
+#header .lang li + li {
+  margin-left: 15px;
+  padding-left: 15px;
+  position: relative;
+}
+/* 메뉴 사이 구분선은 글자보다 높이가 작은 경우가 많으므로 before로 띄워서 처리 */
+/* bar 디자인이 클릭해야하는 요소가 아니기 때문에 a가 아닌 li에 before 적용 */
+#header .lang li + li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 1px;
+  height: 12px;
+  background: #fff;
+}
+#header .lang a {
+  color: rgba(255, 255, 255, 0.3);
+}
+#header .lang li.active a {
+  color: #fff;
+  position: relative;
+}
+#header .lang li.active a::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+}
+#header .inquiry_btn {
+  height: 50px;
+  color: #fff;
+  border-color: #fff;
+  border-radius: 25PX;
+  width: 148px;
+  font-size: 18px;
+  font-weight: 500;
+  gap: 0 10px;
+}
+#header .inquiry_btn::after {
+  content: '';
+  width: 22px;
+  height: 20px;
+  -webkit-mask: url(../images/power_icon.svg) no-repeat top center / 100%;
+  mask: url(../images/power_icon.svg) no-repeat top center / 100%;
+  background: #ffcc00;
+  transform: rotateZ(-135deg);
+  transition: all 0.5s;
+}
+#header .inquiry_btn:hover {
+  background: #212121;
+  border-color: #212121;
+}
+#header .inquiry_btn:hover::after {
+  background: #fff;
+  transform: rotateZ(0deg);
+}
+#header .open_btn {
+  display: none;
+}
+/* main 디자인 */
+
+.main_slider {
+  /* border: 5px solid red; */
+  /* 높이 지정을 안하면 비디오가 사라짐 */
+  height: 1000px;
+  position: relative;
+}
+.main_slider video {
+  /* object-fit: cover - background-size: cover;를 html 요소에 적용시킬 수 있음
+  width: 100% 과  height: 100%;를 반드시 적용해야 함 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main_slider .slider_bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.main_slider .slider_bottom img {
+  width: 100%;
+}
+
+
+/* pc 분기점 */
+@media (max-width: 1550px) {
+  #header .gnb>li {
+   padding: 0 25px;
+  }
+  #header .gnb>li> {
+   font-size: 16px;
+  }
+  #header .lang_wrap {
+   gap: 0 20px;
+  }
+}
+
+/* 태블릿 분기점 */
+@media (max-width: 1200px) {
+  #header .inner {
+    height: 80px;
+  }
+  #header .logo {
+    width: 127px;
+  }
+  #header .logo a {
+    height: 30px;
+  }
+  #header .gnb_wrap {
+    display: none;
+  }
+  #header .open_btn {
+    width: 26px;
+    height: 26px;
+    /* border: none; */
+    /* background: yellow; */
+    /* background: url(/images/menu-line.png) no-repeat top center; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  #header .open_btn i {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+  }
+  
+
+  #header .m_gnb_wrap {
+    /* .m_gnb_wrap을 오른쪽으로 밀어버림 */
+    /* transform: translateX(100%); */
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 320px;
+    /* fixed는 창 기준이므로 height 100% 가능 */
+    height: 100%;
+    background: #fff;
+    /* .lang_wrap보다 더 위에 뜨게 하기 위해서 z-index: 20 지정 */
+    z-index: 20;
+    /* 스크롤 */
+    /* overflow: auto; */
+    /* 스크롤 영역 강제 생성 */
+    overflow-y: scroll;
+    padding: 140px 0 60px 50px;
+    display: block;
+  }
+
+  #header .m_gnb_wrap .close_btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 28px;
+    height: 28px;
+    border: none;;
+    background: none;
+  }
+  #header .m_gnb_wrap .close_btn i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background: #5b606a;
+    margin-top: -1px;
+    transform: rotateZ(45deg);
+  }
+  /* nth-child() 선택자는 '모든' 형제 요소에서 n번째 */
+  /* nth-of-type() 선택자는 다른 형제 요소가 있어도 동일 태그중에서 n번째 */
+  #header .m_gnb_wrap .close_btn i:nth-of-type(2) {
+    transform: rotateZ(-45deg);
+  }
+  #header .m_gnb>li {
+    margin-bottom: 30px;
+    position: relative;
+  }
+  #header .m_gnb>li::before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 10px;
+    width: 0px;
+    height: 2px;
+    background: #142345;
+  }
+  #header .m_gnb>li>a {
+    display: block;
+    color: #313741;
+    font-weight: 500;
+  }
+  #header .m_gnb>li:hover .depth2 {
+    display: block;   
+  }
+  #header .m_gnb>li:hover::before {
+    width: 30px;
+    /* hover를 transition에서 선언하면 hover시에만 transition 작동 */
+    transition: all 0.5s;
+  }
+  #header .m_gnb .depth2 {
+    display: none;
+    margin-top: 20px;
+   }
+  #header .m_gnb .depth2 li + li {
+    margin-top: 12px;
+  }
+  #header .m_gnb .depth2 a {
+    opacity: 0.6;
+    color: #494d54;
+    transition: all, 0.4s;
+  }
+  #header .m_gnb .depth2 a:hover {
+    opacity: 1;
+  }
+}
+
+
+/* 모바일 분기점 */
+@media (max-width: 767px) {
+  #header .inner {
+    height: 60px;
+  }
+  #header .logo {
+    width: 106px;
+  }
+  #header .logo a {
+    height: 25px;
+  }
+  #header .lang a {
+    font-size: 14px;
+  }
+  #header .lang li.active a::before {
+    width: 4px;
+    height: 4px;
+    top: -6px;
+  }
+  #header .inquiry_btn {
+    display: none;
+  }
+  #header .m_gnb_wrap {
+    width: 60%;
+  }
+
+  /* main 스타일*/
+  .main_slider {
+    height: 630px;
+  }
+}

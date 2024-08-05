@@ -1,0 +1,33 @@
+:root {
+  --point--color1: #ff7200;
+  --point--color2: #feb12d;
+  --txt-color-400: #888;
+  --txt-color-500: #666;
+  --txt-color-600: #222;
+}
+body {
+  font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+}
+#wrap {
+  height: 1500px;
+}
+.main_etc {
+  background: #f0f0f0;
+  /* 패딩은 바깥요소에서 잡고 가기 */
+  padding: 70px 0;
+}
+.main_etc .inner {
+  /* 반응형에서는 레이아웃이 줄어들어야 하기 때문에 max-width 사용 */
+  /* 기본그리드 + 좌우패딩( 아래 15px을 지정해 놨기 때문에 기본그리드1200 + 15x2 = 1230 지정. */
+  max-width: 1230px;
+  margin: 0 auto;
+  /* 창이 줄어들 경우 좌우가 붙지 않도록 태블릿 여백을 미리 지정 */
+  padding: 0 15px;
+  border: 4px solid red;
+  height: auto;
+}
+/* font 지정 */
+.main_etc .inner h2 {
+  font-size: 48px;
+  font-family: 'Akrobat', sans-serif;
+}

@@ -1,0 +1,23 @@
+:root {
+  --point--color1: #ff601e;
+  --point--color2: #feb12d;
+  --txt-color-400: #888;
+  --txt-color-500: #666;
+  --txt-color-600: #000;
+}
+#wrap {
+  height: 1500px;
+}
+.container {
+  height: 300px;
+  display: flex;
+  background: yellowgreen;
+}
+.item {
+  font-size: 1.2em;
+  border: 2px solid black;
+  background: green;
+  color: var(--txt-color-600);
+  margin: 2px;
+  padding: 2px;
+}

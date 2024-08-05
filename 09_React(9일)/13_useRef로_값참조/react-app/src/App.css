@@ -1,0 +1,27 @@
+
+.container .header .logo_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.container .footer {
+  padding: 20px;
+  height: 200px;
+  border-top: 1px solid #000;
+}
+
+.dark_theme {
+  background-color: #333;
+  color: #fff;
+}
+
+.light_theme {
+  background-color: #fff;
+  color: #333;
+}
+
+.header.dark_theme button {
+  color: #fff;
+  background: #000;
+}

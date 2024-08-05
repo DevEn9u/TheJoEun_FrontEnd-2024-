@@ -1,0 +1,29 @@
+:root {
+  --point--color1: #07f;
+  --point--color2: #2be283;
+  --txt-color-400: #9fa1a7;
+  --txt-color-500: #4a4e57;
+  --txt-color-600: #17191d;
+}
+
+#wrap {
+  min-width:1280px;
+}
+
+.section1 {
+  width: 1280px;
+  padding:0 40px;
+  height: 400px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.section1 .clock {
+  border: 1px solid red;
+  display: flex;
+  font-size: 80px;
+}
+
+.section1 .clock span {
+  margin:6px 10px 0;
+}

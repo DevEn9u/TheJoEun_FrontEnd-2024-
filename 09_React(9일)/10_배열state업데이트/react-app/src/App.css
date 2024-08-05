@@ -1,0 +1,7 @@
+.packing_list .item.checked {
+  text-decoration: line-through;
+}
+
+.list>li:first-child {
+  margin-bottom: 20px;
+}

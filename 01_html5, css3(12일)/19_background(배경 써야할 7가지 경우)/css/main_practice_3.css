@@ -1,0 +1,20 @@
+:root {
+  --point--color1: #be161e;
+  --point--color2: #c7b19b;
+  --txt-color-400: #666;
+  --txt-color-500: #999;
+  --txt-color-600: #222;
+}
+body {
+  font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+}
+#wrap {
+  min-width: 1260px;
+  height: 1500px;
+}
+#header {
+  position: fixed;
+  min-width: 1260px;
+  height: 1000px;
+  width: 100%;
+}

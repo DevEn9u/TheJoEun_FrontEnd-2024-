@@ -1,0 +1,278 @@
+:root {
+  --point--color1: #5dc591;
+  --point--color2: #907354;
+  --txt-color-400: #969696;
+  --txt-color-500: #565656;
+  --txt-color-600: #191919;
+}
+
+#wrap {
+  height: 2000px;
+}
+/* header */
+#header {
+  /* .logo의 기준이 됨 */
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 80px;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+}
+#header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 100%;
+  height: 10px;
+  background: #ededed;
+  display: none;
+}
+
+#header .logo {
+  width: 119px;
+  /* #header가 기준 */
+  position: absolute;
+  left: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#header .logo a {
+  display: block;
+  height: 36px;
+  background: url(../images/img_logo_white.svg) no-repeat left top / 100%;
+}
+
+#header .gnb {
+  display: flex;
+}
+#header .gnb>li {
+  /* #header::after의 기준 */
+  position: relative;
+}
+#header .gnb>li>a {
+  display: block;
+  color: #fff;
+  line-height: 80px;
+  padding: 0 40px;
+  font-size: 20px;
+  font-family: 'Outfit';
+  position: relative;
+}
+#header .gnb>li>a::after {
+  content: '';
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 0;
+  height: 1px;
+  /* width를 이용하는방법
+    width: calc(100% - 80px);
+    margin-left: 40px; */
+  margin-left: 5px;
+  z-index: 20;
+  transform: scaleX(0);
+  background: #000;
+}
+#header .gnb>li:hover>a::after {
+  transform: scaleX(1);
+  transition: all 0.5s;
+}
+#header .gnb .depth2 {
+  position: absolute;
+  /* .gnb>li>a의 여백이 40px이므로 */
+  left: 40px;
+  top: 80px;
+  z-index: 10;
+  padding-top: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+}
+/* #header .gnb:hover .depth2 {
+  visibility: visible;
+  opacity: 1;
+} */
+#header .gnb .depth2 li + li {
+  margin-top: 15px;
+}
+#header .gnb .depth2 a {
+  font-size: 16px;
+  transition: all 0.25s;
+}
+#header .gnb .depth2 a:hover {
+  color: var(--point--color1);
+}
+/* .depth2의 배경색, 100% 디자인이기 때문에 100% 디자인인 #header에 와야함 */
+#header::after {
+  content: '';
+  /* #header .gnb>li가 기준 */
+  position: absolute;
+  left: 0;
+  top: 80px;
+  width: 100%;
+  /* height: 200px; */
+  height: 0;
+  background: #fcfcfc;
+}
+
+#header .login_wrap {
+  position: absolute;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+}
+#header .login_wrap .login {
+  width: 24px;
+  height: 24px;
+  background: url(../images/ico_login_white.svg) no-repeat left top / 100%;
+}
+
+#header .open_btn {
+  display: none;
+}
+
+
+/* main */
+.main_video {
+  position: relative;
+  height: 100vh;
+}
+.main_video::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(25, 25, 25, 0.6);
+}
+.main_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main_video .tit_wrap {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 32px;
+  z-index: 10;
+  /* border: 4px solid red; */
+  text-align: center;
+  color: #fff;
+  /* 한 단어씩 떨어지게 함 */
+  word-break: keep-all;
+  word-wrap: break-word ;
+}
+.main_video .tit_wrap h2 {
+  font-size: 64px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+}
+.main_video .tit_wrap p {
+  font-size: 32px;
+  font-weight: 500;
+  margin-top: 28px;
+}
+
+
+/* 태블릿 분기점 */
+@media (max-width: 1200px) {
+  #header {
+    height: 65px;
+  }
+  #header .logo {
+    left: 32px;
+    width: 86px;
+  }
+  #header .logo a {
+    height: 26px;
+  }
+  #header .gnb_wrap {
+    display: none;
+  }
+  #header .login_wrap {
+    right: 32px;
+    gap: 0 15px;
+  }
+
+  #header .open_btn {
+    width: 26px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0;
+    align-items: center;
+    justify-content: center;
+  }
+  #header .open_btn i {
+    width: 20px;
+    height: 2px;
+    background: #fff;
+    transition: all 0.5s;
+  }
+  #header .open_btn:hover i:nth-of-type(1) {
+    transform: rotateZ(135deg) translate(5px, -5px);
+  }
+  #header .open_btn:hover i:nth-of-type(2){
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  #header .open_btn:hover i:nth-of-type(3) {
+    transform: rotateZ(-135deg) translate(5px, 5px);
+  }
+  /* #header .open_btn:hover i:nth-of-type(3) {
+    transform: rotateZ(-135deg);
+  } */
+  .main_video .tit_wrap h2 {
+    /* vw공식
+    768px(mobile to tablet):42px(font-size) = 100%:x x=5.46vw
+    x = 100vw * 요소크기 / 768 
+    calc(100vw * 요소크기 / 768)*/
+    /* font-size: 5.46vw; */
+    font-size: calc(100vw * 42 / 768);
+  }
+  .main_video .tit_wrap p {
+    font-size: calc(100vw * 21 / 768);
+    margin-top: calc(100vw * 18 / 768);
+  }
+}
+
+
+/* 모바일 분기점 */
+@media (max-width: 767px) {
+  #header {
+    height: 52px;
+  }
+  #header .logo {
+    left: 20px;
+  }
+  #header .login_wrap {
+    right: 20px;
+  }
+  
+  .main_video {
+    height: 50vh;
+  }
+  .main_video .tit_wrap {
+    padding: 0 20px;
+  }
+  .main_video .tit_wrap h2 {
+    font-size: calc(100vw * 24 / 360);
+  }
+  .main_video .tit_wrap p {
+    font-size: calc(100vw * 13 / 360);
+    margin-top: calc(100vw * 7 / 360);
+  } 
+}

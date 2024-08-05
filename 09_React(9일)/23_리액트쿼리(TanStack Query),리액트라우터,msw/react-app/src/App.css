@@ -1,0 +1,22 @@
+.app {
+  padding: 20px 20px 50px;
+}
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  background: #ddd;
+}
+.header .gnb {
+  display: flex;
+}
+.header .gnb>li {
+  padding: 0 30px;
+  border: 1px solid black;
+}
+.header .gnb>li>a {
+  display: block;
+  line-height: 70px;
+  font-size: 20px;
+}

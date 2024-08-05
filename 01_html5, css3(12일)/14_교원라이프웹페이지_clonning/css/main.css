@@ -1,0 +1,105 @@
+:root {
+  --point--color1: #ff7200;
+  --point--color2: #feb12d;
+  --txt-color-400: #888;
+  --txt-color-500: #666;
+  --txt-color-600: #222;
+}
+body {
+  font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+}
+#wrap {
+  height: 1500px;
+}
+.main_etc {
+  background: #f0f0f0;
+  /* 패딩은 바깥요소에서 잡고 가기 */
+  padding: 70px 0;
+}
+.main_etc .inner {
+  /* 반응형에서는 레이아웃이 줄어들어야 하기 때문에 max-width 사용 */
+  /* 기본그리드 + 좌우패딩( 아래 15px을 지정해 놨기 때문에 기본그리드1200 + 15x2 = 1230 지정. */
+  max-width: 1230px;
+  margin: 0 auto;
+  /* 창이 줄어들 경우 좌우가 붙지 않도록 태블릿 여백을 미리 지정 */
+  padding: 0 15px;
+}
+.main_etc .etc {
+  display:flex;
+  gap: 0 15px;
+}
+.main_etc .etc li {
+  /* border: 1px solid red; */
+  /* 25%를 주는 이유는 li가 4개이기 때문. 5개면 20% 줄 수 있다. */
+  width: 25%;
+  box-shadow: 2px 2px 4px rgba(220, 220, 220, 1);
+}
+.main_etc .etc li:hover h3 {
+  color: var(--point--color1);
+}
+.main_etc .etc li a {
+  /* border: 2px solid black; */
+  display: block;
+  /* height는 안에서, width는 밖에서 지정! */
+  height: 250px;
+  padding: 40px 25px 0;
+  /* background: 색 url 반복옵션 x위치 xoffset y위치 yoffset / 가로크기 / 세로크기
+  offset 사용시 위치는 단어.
+  image의 위치: x y / 가로 세로 
+  ('/'는 위치와 크기를 구분) 
+  right: 25px, bottom 25px 이라는 의미 */
+  background: #fff url(../images/company.svg) no-repeat right 25px bottom 25px / auto 55px;
+}
+.main_etc .etc li:nth-child(2) a{
+  background-image: url(../images/mic.svg);
+}
+.main_etc .etc li:nth-child(3) a{
+  background-image: url(../images/chrysanthemum.svg);
+}
+.main_etc .etc li:nth-child(4) a{
+  background-image: url(../images/qna.svg);
+}
+.main_etc .etc h3 {
+  font-size: 22px;
+  color: var(--txt-color-600);
+  font-weight: 700;
+}
+
+.main_etc .etc p {
+  font-size: 16px;
+  color: var(--txt-color-400);
+  margin-top: 12px;
+}
+
+
+/* for Tablet */
+@media screen and (max-width: 1200px) {
+  .main_etc .etc p br {
+    display: none;
+  }
+}
+/* for Mobile */
+@media screen and (max-width: 767px) {
+  .main_etc {
+    padding: 35px 0;
+  }
+  .main_etc .etc {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .main_etc .etc li {
+    width: calc(50% - 15px / 2);
+  }
+  .main_etc .etc a {
+    padding: 25px 15px 0;
+    height: 200px;
+    background-size: auto 45px;
+    background-position: right 15px bottom 15px;
+  }
+  .main_etc .etc h3 {
+    font-size: 18px;
+  }
+  .main_etc .etc p {
+    font-size: 14px;
+  }
+}                                                                                                                                

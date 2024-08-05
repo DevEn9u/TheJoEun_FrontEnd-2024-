@@ -1,0 +1,10 @@
+@font-face {
+    font-family: '';
+    src: url('NEXONLv1GothicLowOTFBold.eot');
+    src: url('NEXONLv1GothicLowOTFBold.eot?#iefix') format('embedded-opentype'),
+        url('NEXONLv1GothicLowOTFBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

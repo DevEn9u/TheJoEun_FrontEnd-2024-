@@ -1,0 +1,267 @@
+:root {
+  --point--color1: #07f;
+  --point--color2: #2be283;
+  --txt-color-400: #9fa1a7;
+  --txt-color-500: #4a4e57;
+  --txt-color-600: #17191d;
+}
+
+#wrap {
+  min-width: 1004px;
+  background-color: #f8f9fa
+}
+
+.main_game {
+  padding-bottom: 300px;
+}
+.main_game .inner {
+  width: 1280px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+.main_game .game_top {
+  display: flex;
+  align-items: center;
+}
+.main_game .game_top h2 {
+  font-family: 'NEXONLv1Gothic', sans-serif;
+  font-size: 24px;
+  color: var(--txt-color-600);
+  margin-right: 15px;
+}
+.main_game .game_top .link_btn {
+  font-family: 'NEXONLv1Gothic', sans-serif;
+  color: var(--txt-color-500);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.main_game .game_top .link_btn:hover {
+  color: var(--point--color1);
+}
+.main_game .game_top .link_btn:hover i {
+  background-position-x: -50px;
+}
+.main_game .game_top .link_btn::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  background: url(../images/set_newpage.svg) no-repeat;
+  margin-left: 5px;
+}
+.main_game .game_top .link_btn:hover::after {
+  background-position-x: -50px;
+}
+
+.main_game .game_top .search {
+  /* flex item중에서 .search만 오른쪽 끝으로 배치 가능 */
+  margin-left: auto;
+  /* width는 밖에서, height는 안에서 지정  */
+  width: 302px;
+  position: relative;
+}
+.main_game .game_top .search input[type=search] {
+  height: 44px;
+  width: 100%;
+  border: none;
+  background: none;
+  border-bottom: 1px solid #dde1e5;
+  padding: 0 40px 0 3px;
+}
+.main_game .game_top .search input[type=search]::placeholder {
+  color: #c7c8cc;
+}
+.main_game .game_top .search_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  -webkit-mask: url(../images/search.svg) no-repeat center center / 20px;
+  mask: url(../images/search.svg) no-repeat center center / 20px;
+  background: var(--txt-color-600)
+}
+.main_game .game_top .search_btn:hover {
+  background: var(--point--color1);
+}
+
+.main_game .filter {
+  background: #fff;
+  height: 100px;
+  padding: 0 30px;
+  display: flex;
+  /* 두 줄 가운데 정렬 */
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 17px 16px;
+  margin-top: 20px;
+}
+.main_game .filter a {
+  /* border: 1px solid red; */
+  padding: 0 10px;
+  line-height: 21px;
+  color: var(--txt-color-400);
+  transition: all 0.2s;
+}
+.main_game .filter a:hover {
+  color: var(--point--color1);
+}
+.main_game .filter a.active {
+  background: var(--txt-color-600);
+  color: #fff;
+  /* 반원은 height의 절반 */
+  border-radius: 11px;
+}
+
+.main_game .game {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px 24px;
+  margin-top: 35px;
+}
+.main_game .game>li {
+  /* 25%로 설정하면 한 줄에 3개의 li만 오기 때문에 gap만큼 뺴주어야 하는데 여기선 24px x 3 =72px이고, columns수 만큼 나눠서 빼야한다. */
+  /* 전체 간격 / the number of columns */
+  width: calc(25% - 72px / 4);
+  /* border: 1px solid blue; */
+  /* hover의 transition */
+  transition: box-shadow 0.5s;
+  /* .youtube_sns_icon의 기준 */
+  position: relative;
+}
+.main_game .game>li:hover {
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.16);
+}
+.main_game .game .img_wrap {
+  position: relative;
+  overflow: hidden;
+}
+  .main_game .game .img_wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  /* fade 효과에 cubic bezier 사용하지 말것 :차이가 없을 정도라 굳이..  */
+  transition: all 0.2s;
+}
+.main_game .game .img_wrap img {
+  transition: all 0.2s;
+}
+.main_game .game>li:hover .img_wrap::after {
+  opacity: 0;
+}
+.main_game .game>li:hover img {
+  transform: scale(1.1);
+}
+
+.main_game .game .txt_wrap {
+  height: 120px;
+  background: #fff;
+  padding: 24px 24px;
+}
+.main_game .game .txt_wrap strong {
+  font-size: 16px;
+  font-family: 'NEXONLv1Gothic', sans-serif;
+  color: var(--txt-color-600);
+  /* strong은 inline element이고, inline element는 margin과 padding이 적용이 안되기 때문에 display를 block으로 바꿔준다. */
+  margin-bottom: 10px;
+  display: block;
+}
+.main_game .game .txt_wrap .type {
+  color: var(--txt-color-400);
+}
+.main_game .game .txt_wrap .event {
+  color: var(--point--color1);
+  font-weight: 700;
+}
+
+/* class명에 sns_icon을 포함하는 모든 요소 */
+.main_game .game>li [class*=sns_icon] {
+  /* .main_game .game>li 가 기준 */
+  position: absolute;
+  right: 24px;
+  bottom: 80px;
+}
+.main_game .game .os {
+  position: absolute;
+  bottom: 12px;
+  right: 18px;
+  display: flex;
+  gap: 0 6px;
+}
+.main_game .game .os>li {
+  position: relative;
+}
+.main_game .game .os>li:hover [class*=os_icon] {
+  background-position-x: -50px;
+}
+.main_game .game .os>li:hover .depth2 {
+  opacity: 1;
+  visibility: visible;
+}
+.main_game .game .os .depth2 {
+  position: absolute;
+  left: 50%;
+  top: 34px;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: #1b1f24;
+  display: flex;
+  /* 글자 안내려가게 해줌 */
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+}
+.main_game .game .os .depth2 li + li {
+  position: relative;
+}
+.main_game .game .os .depth2 li + li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -5px;
+  width: 1px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2)
+}
+
+.main_game .game .os>li .depth2 a {
+  display: block;
+  color: #737881;
+  padding: 0 10px;
+  line-height: 34px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+.main_game .game .os>li .depth2 a:hover {
+  color: #fff;
+}
+.main_game .game .os .depth2::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-bottom-color: #1b1f24;
+}
+
+
+
+/* 분기점 */
+@media (max-width: 1412px) {
+  .main_game .inner {
+    width: 954px;
+  }
+  .main_game .game>li {
+    /* 간격 총합 48px / column 수 3개 */
+    width: calc(100% / 3 - 16px);
+  }
+}

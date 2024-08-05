@@ -1,0 +1,66 @@
+-------------------------
+Next.js
+라우터부터 대부분 내장되어있기 때문에 vite가 아닌 next 사용,
+깃헙의 스타트업 패키지를 다운
+npx create-next-app@latest nextjs-dashboard --use-npm --example "https://github.com/vercel/next-learn/tree/main/dashboard/starter-example
+
+next.js는 app폴더에서 작업하고, app 폴더 안에 라우터가 자동으로 생장되게끔 내장되어 있음
+app폴더 안에서 만드는 모든 파일은 자체가 경로가됨
+page.tsx는 경로를 정해주고, 최초 접속시 나오는 페이지, 홈페이지 역할, 테일윈드 문법 사용되고 있음
+lib 폴더는 경로를 만들기 위해 만든 것이 아님.
+ui 폴더는 React에서의 components 폴더 역할
+global.css가 공통 css, 즉 리액트에서의 index.css, jquery에서 common.css 역할
+
+테일윈드 커스텀 컬러는 tailwind.config.ts에 작성
+* 테일윈드 기본단위가 rem이므로 모바일 브라우저 접근성 설정에 의한 레이아웃 변경 방지
+ ㄴ 우리나라 디자인에서는 rem을 잘 안쓰는 환경.
+
+*css모듈
+- 상대경로'./' 사용하면 경로가 정확히 어디인지 확인하기 어려움
+  ㄴ 경로 지정할 때 절대경로 @ 사용. @는 tsconfig.json을 보면 어디인지 나오는데, './'로 나옴.
+    제일 바깥쪽 
+import styles from '@/app/page.module.css';
+
+*clsx 패키지로 조건부 스타일 작성
+03. 폰트 이미지 최적화
+typeScript에서의 type과 next.js에서의 interface는 거의 동일하나, 후자는 type을 확장시킬 수 있음
+패키지를 만들거나 할때나 interface를 필요로 하고 우리는 interface 쓰지 않고 type 사용해도 됨(breadcrumbs.tsx)
+
+eot, ttf는 하위브라우저와 익스용이라서 이제 필요 없음
+woff만 사용하고, woff2는 용량 최적화 가능 
+ 
+fonts.ts에서 Montserrat는 구글폰트에서 varialbe, 즉 변수 지원하므로 다 가져오기 때문에
+weight 지정을 따로 안해도 됨
+그에 반해 Lusitana 폰트는 weight이 정해져있고 변수 지원하지 않기때문에 weight을 직접 써주어야 함
+subsets latin은 폰트 최적화를 하는 용인데, 문자집합을 latin으로 설정하여 알파벳 및 로마자 언어를 표현
+ㄴ 한국어는 subsets 없음
+display swap은 폰트를 다운받는 동안에 폰트 차단 기간, 폰트 교체 기간, 폰트 실패 기간이 존재하는데
+ㄴ swap은 다운로드 되기 전에 잠시 폰트를 차단했다가 준비가 완료되면 폰트를 교체하는 방식.
+   폰트 교체로 인한 깜박임과 흔들림을 방지하기 위해 swap을 사용하곤 합니다.
+구글 폰트를 함수형식으로 받아와 다시 첫글자가 소문자인 동일명 변수에 담아 사용.
+로컬 폰트는 src: [] 안에 {path: }에서 지정하여 사용.
+
+
+* 이미지 컴포넌트
+// /app/page.tsx
+import Image from 'next/image';
+기본 컴포넌트 연결
+
+          <Image
+            src="/hero-desktop.png"
+            width={1000}
+            height={760}
+            className="hidden md:block"
+            alt="Screenshots of the dashboard project showing desktop version"
+          />
+에서 width와 height을 지정하는 이유는 layout shift(이미지가 로딩되는 동안 이미지를 없는 것으로 판단하여
+텍스트가 이미지 위치에 있다가 이미지가 업로드되면서 텍스트가 밀리는 현상) 현상을 막기 위해서이다.
+ㄴ 여기서는 원본이미지가 2000 x 1520이라 50% 줄여서 적용
+next.js는 규칙이 매우 tight하다
+
+04.레이아웃 페이지
+layout.tsx는 필요에 따라 안쪽에 여러개를 만들 수 있다.
+폴더별 page.tsx가 페이지
+app 폴더 안에 dashboard안에page 작성
+
+레이아웃의 children 안으로 각 페이지가 들어옴

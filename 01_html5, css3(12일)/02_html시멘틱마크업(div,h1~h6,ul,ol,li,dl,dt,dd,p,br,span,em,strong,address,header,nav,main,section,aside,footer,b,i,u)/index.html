@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- 현재 html 문서의 version이 html5임을 브라우저에게 알림 -->
+  <!-- 현재 문서의 주 언어 명시 -->
+<html lang="ko">
+<head>
+  <!-- 현재파일의 형식이 유니코드(다국어)임을 나타냄 -->
+  <meta charset="UTF-8">
+  <!-- 모바일 디바이스의 크기만큼 브라우저 크기를 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<div id="wrap">
+  <header id="header">
+    <!-- 로고는 웹페이지의 가장 대표적인 상징을 나타냄, h1 -->
+    <h1 class="logo">로고</h1>
+    <!-- h2는 주로 섹션 제목에 사용 -->
+    <h2>작은제목</h2>
+    <h3>컬럼제목</h3>
+    <!-- 주메뉴 감쌀때만 사용. -->
+    <nav class="gnb_wrap">
+      <!-- 순서가 중요하지 않은 일반적인 리스트 <ul> -->
+      <ul class="gnb">
+        <li>주메뉴1</li>
+        <li>주메뉴1</li>
+        <li>주메뉴1</li>
+        <li>주메뉴1</li>
+        <li>주메뉴1</li>
+      </ul>
+    </nav>
+  </header>
+  <main id="container">
+    <section class="main_etc">
+      <h2>섹션에는 반드시 하나 이상의 제목태그가 필요</h2>
+      <!-- 순서가 의미를 가지는 리스트 <ol> -->
+      <ol>
+        <li>페이스북에 접속</li>
+        <li>이벤트 참여 클릭</li>
+        <li>이메일 작성</li>
+      </ol>
+      <!-- dl, dt, dd는 제목이 포함된 리스트구조에 주로 사용 -->
+      <dl>
+        <dt>카테고리 제목</dt>
+        <dd>카테고리1</dd>
+        <dd>카테고리2</dd>
+        <dd>카테고리3</dd>
+      </dl>
+    </section>
+  </main>
+  <footer id="footer">
+    <!-- br태그는 줄바꿈태그, self closing tag -->
+    <!-- strong: 볼드, em: 이탤릭 -->
+    <!-- span은 inline element를 그룹화할때 사용, 글자를 감을 때 사용 -->
+    <p><strong>Lorem ipsum</strong> dolor <em>sit</em> amet consectetur<br>adipisicing elit <span>aldihan</span>. Quse, quis.</p>
+    <p><b>Lorem ipsum</b> dolor sit amet consectetur, adipisicing elit. <i>Libero</i> ut debitis, distinctio ratione <u>accusamus</u> quia!</p>
+    <!-- 주소를 의미 -->
+    <address>서울특별시 종로구</address>
+  </footer>
+</div>
+</body>
+</html>

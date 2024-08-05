@@ -1,0 +1,89 @@
+:root {
+  --point--color1: #eb6242;
+  --point--color2: #c7b19b;
+  --txt-color-400: #666;
+  --txt-color-500: #333;
+  --txt-color-600: #222;
+}
+body {
+  font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+}
+#wrap {
+  min-width: 1140px;
+  height: 1500px;
+}
+
+.main_recommend {
+  padding-top: 61px;
+  height: 610px;
+  background: url(../images/mainBanner01.jpg) no-repeat center top / cover;
+  /* 위 축약형에 입력했음 
+  background-size: cover; */
+}
+.main_recommend .inner {
+  width: 1060px;
+  /* border: 3px solid red; */
+  margin: 0 auto;
+}
+.main_recommend .tit_wrap {
+  color: #fff;
+  text-align: center;
+}
+.main_recommend .tit_wrap h2 {
+  font-size: 40px;
+}
+.main_recommend .tit_wrap p {
+  font-size: 18px;
+}
+
+.main_recommend .recommend {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 0 40px;
+}
+.main_recommend .recommend li {
+  width: 300px;
+  border-radius: 10px;
+  /* border-radius가 커져버리면 둥그러지면서 없어진 부분에 커서를 갖다대면 hover가 되기때문에 overflow:hidden으로 없어진 부분에 커서를 갖다 대도 hover 안됨 */
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  background: #fff url(../images/icon-top0102.png) no-repeat right bottom;
+}
+.main_recommend .recommend li:nth-child(2){
+  /* background 축약형으로 쓰면 no-repeat right bottom을 다시 써줘야 함 */
+  background-color: #eee;
+  background-image: url(../images/icon_searchResult.png);
+}
+/* 원칙적으로 모양은 밖에다 줘야함 따라서 border radius와 background-color는 a가 아닌 li에 주어야 함 */
+.main_recommend .recommend a {
+  display: block;
+  height: 310px;
+  padding: 30px 25px;
+}
+.main_recommend .recommend em {
+  /* em 태그는 inline element이기 때문에 padding이 겹쳐버려서 사용이 불가하니 block element로 바꿔야 함 */
+  display: block;
+  font-size: 16px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.main_recommend .recommend em::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 16px;
+  height: 3px;
+  background-color: var(--point--color1);
+}
+.main_recommend .recommend p {
+  font-size: 27px;
+  color: var(--txt-color-600);
+  margin-top: 10px;
+  /* line-height는 단위 em이 생략되어있음 */
+  line-height: 1.2;
+}
+.main_recommend .recommend strong {
+  color: var(--point--color1);
+}

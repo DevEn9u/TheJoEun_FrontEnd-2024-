@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/main.css">
+    <title>CSS 초기화</title>
+</head>
+<body>
+  <!-- skip navigation: tab키로 주요영역으로 바로가기 위한 메뉴(키보드 접근성) -->
+  <div id="skip_navi">
+    <a href="#container">본문 바로가기</a></div>
+  <div id="wrap">
+    <main id="container">
+      <section class="main_etc">
+        <h2>섹션 제목</h2>
+        <p>스페인의 <strong>아틀레티코 마드리드</strong>가 극적으로 유럽축구연맹(UEFA) 챔피언스리그(UCL) 8강에 올랐다.</p>
+        <p>스페인의 아틀레티코 마드리드가 극적으로 <strong>유럽축구연맹(UEFA)</strong> 챔피언스리그(UCL) 8강에 올랐다.</p>
+        <p>스페인의 아틀레티코 마드리드가 극적으로 유럽축구연맹(UEFA)  <strong>챔피언스리그(UCL)</strong> 8강에 올랐다.</p>
+      </section>
+      <section class="main_news">
+        <h2 class="blind">News</h2>
+        <form>
+          <fieldset>
+            <legend>검색</legend>
+            <input type="text">
+          </fieldset>
+        </form>
+        <button type="button">버튼</button>
+        <div class="seaerch"></div>
+        <div>
+          <a href="#"><img src="images/logo_w.png" alt="써브웨이"></a>
+        </div>
+        <div>
+          <a href="#"><img src="images/logo_w.png" alt="써브웨이"></a>
+        </div>
+        <img src="images/image_1.jpg" alt="">
+        <ul>
+          <li>리스트</li>
+          <li>리스트</li>
+          <li>리스트</li>
+        </ul>
+        <a href="https://www.naver.com">네이버</a>
+        <div id="본문">
+          <p><iframe width="720" height="480" max-width="" src="https://www.youtube.com/embed/Fo7omZ03szI" title="Chillout Music for Work — Programming, Hacking, Coding — Future Garage for Concentration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></p>
+      </div>
+      <div class="checkbox_wrap">
+        <input type="checkbox" name="체크박스" id="checkbox">
+        <label for="checkbox">오늘 하루 열지 않음</label>
+      </div>
+      <div class="checkbox_wrap">
+        <input type="checkbox" name="체크박스" id="checkbox1">
+        <label for="checkbox1">30일동안 열지 않음</label>
+      </div>
+      <textarea name="텍스트" id="textarea1" cols="30" rows="10"></textarea>
+      <input type="text" placeholder="서울특별시 종로구">
+      <input type="search" name="검색" id="search1">
+      </section>
+    </main>
+  </div>
+</body>
+</html>

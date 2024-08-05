@@ -1,0 +1,121 @@
+:root {
+  --point--color1: #03c75a;
+  --point--color2: #9858f5;
+  --txt-color-400: #404040;
+  --txt-color-500: #101010;
+  --txt-color-600: #080808;
+}
+
+#wrap {
+  height: 1500px;
+  min-width: 1280px;
+}
+/* position: fiexd는 창 고정 레이어
+크기는 content만큼 줄어듬
+따라서 width: 100% 지정해줘야 함
+fiexed 레이어는 창 기준이므로 #wrap의 min-width가 적용되지 않으며 직접 적어야 함 */
+#header {
+  background: #ddd;
+  position: fixed;
+  /* position을 지정하고 위치 기준(left, top, right, bottom)을 지정하지 않으면 자기 자신의 원래 위치를 기준으로 함. 
+  그러나 위치를 지정하지 않으면 의도된 디자인이 나오지 않을 수 있으니 지정해야 함 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  min-width: 1280px;
+}
+#header .inner {
+  width: 1200px;
+  height: 150px;
+  border: 1px solid red;
+  margin: 0 auto;
+  /* padding: 30px; */
+  /* position: relative;
+  z-index: 0; */
+  }
+#header .logo {
+  border: 3px solid black;
+  /* positon: absolute;를 적용하면 제자리에서 공중에 뜸 */
+  /* 또한 띄우는 속성을 지정하였기 때문에 width가 100%에서 로고의 크기(content)만큼 줄어들게 됨 */
+  /* 만약 inline element에 position: absolute나 fixed를 적용시 block로 element로 변경 됨 */
+  position: absolute;
+
+  /* left, top, right, bottom 위치 속성을 지정하면 기준요소를 따라 이동 */
+  /* absolute 의 기준이 없으면 브라우저 창 기준 */
+  /* absolute를 감싸고 있는 바깥요소에 기준을 줄 수 있음  -> 여기서는 .inner에 position: relative;를 적용함 */
+  /* position: absolute;의 기준은 먼저 감싸고 있는 요소에 position 속성이 있으면 기준이 됨. 즉 여기서 #header로 지정할 수 있고 .inner에 지정할 수 있지만 먼저 감싸고 있는 요소(=더 안에 있는 요소, 부모 요소)인 .inner에 position: relative;를 지정, relative가 아니어도 position이 있는 경우에 기준이 될 수 있음. #header의 postion이 fixed이기 때문에 relative가 지정되지 않은 경우 #header가 기준으로 지정됨. */
+  /*  기준점을 right: 0, bottom: 0을 설정했기 때문에 margin을 사용하기 위해선 방향에 맞춰야하기 때문에 margin도 right, bottom에 적용시켜야 함(left나 top으로 지정하면 적용 안됨)
+  margin-right: 100px;
+  margin-bottom: 50px; */
+  /* position: absolute의 기준요소에 height가 없어도 기준요소 높이만큼 height: 100% 가능 */
+  /* 떠있는 요소는 수직 방향 인접이 아니기 때문에 마진 병합 발생 안함 
+  margin-top: 40px; */
+  /* position 요소는 공중에 떠있으므로 기준요소의 padding이 적용되지 않음 */
+  /* position: absolute 크기를  widthm height 없이 left, right, top, botrtom으로 지정 가능 */
+  /* z-index;로 position을 적용한 요소가 많을 경우 어떤 요소를 가장 맨 위에 둘 것인지를 정할 수 있음 
+  defalut: auto , 1, 2, 3...으로 바꿀 수 있으나 이렇게 되면 양이 너무 많아져 복잡해질 수 있으니 10의 단위로 지정 
+  스크롤시 컨텐츠보다 무조건 위에 떠있게 지정하려면 z-index: 9999등 큰 값으로 지정 
+  z-index를 음수로 지정하면 body바로 앞까지 가게 되기 때문에 조심에서 사용 
+  기준 안에서 z-index 음수로 하나의 요소를 가장 아래로 배치할 경우, 기준요소에 z-index가 있어야 하며 아래로 배치할 요소에 z-index 사용
+  z-index:0 을 설정하면 시작점이 되고 z-index:-1이 바로 그 위에옴.*/
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* z-index: -1; */
+}
+#header .inner::after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  top: 30px;
+  bottom: 30px;
+  /* width: 100%; */
+  /* height: 100%; */
+  border: 3px solid black;
+}
+
+#header .logo img {
+  max-width: none;
+}
+#header p {
+  font-size: 30px;
+  background-color: yellow;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+/* header가 fixed구조일 경우 container에 패딩을 적용 */
+#container {
+  padding-top: 150px;
+}
+
+/* position: relative;는 자신의 원래위치를 기억하는 특수 레이어
+relative 레이어에는 위치 조정 속성으로 변경하면 안됨
+absolut가 적용된 element의 기준이 필요할 경우에 사용하지만, position이 이미 지정된 경우(fixed나 absolute) relative를 굳이 작성하지 않아도 해당 position에 기준이 된다. */
+.main_etc .inner {
+  width: 1200px;
+  height: 500px;
+  border: 5px solid red;
+  margin: 0 auto;
+  position: relative;
+}
+.main_etc p {
+  font-size: 25px;
+}
+.main_etc .cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 300px;
+  background: yellowgreen;
+}
+
+.main_test {
+  border: 10px solid blue;
+}
+.main_test p {
+  font-size: 20px;
+}

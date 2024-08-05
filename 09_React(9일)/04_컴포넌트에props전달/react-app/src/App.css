@@ -1,0 +1,31 @@
+.profile {
+  padding: 20px;
+  display: flex;
+  gap: 20px 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.profile h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.profile .avatar {
+  border-radius: 50%;
+}
+.profile .card2 {
+  width: 100%;
+  border: 1px solid blue;
+}
+
+.card {
+  border: 1px solid #666;
+  padding: 25px 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  vertical-align: top;
+  text-align: center;
+}

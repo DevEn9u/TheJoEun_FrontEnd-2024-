@@ -1,0 +1,80 @@
+:root {
+  --point--color1: #eb6242;
+  --point--color2: #c7b19b;
+  --txt-color-400: #666;
+  --txt-color-500: #333;
+  --txt-color-600: #222;
+}
+body {
+  font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+}
+#wrap {
+  min-width: 1140px;
+  height: 1500px;
+}
+
+.main_recommend {
+  padding-top: 61px;
+  height: 610px;
+  background: url(../images/mainBanner01.jpg) no-repeat center top / cover;
+}
+.main_recommend .inner {
+  width: 1060px;
+  margin: 0 auto;
+}
+.main_recommend .tit_wrap {
+  color: #fff;
+  text-align: center;
+}
+.main_recommend .tit_wrap h2 {
+  font-size: 40px;
+}
+.main_recommend .tit_wrap p {
+  font-size: 18px;
+}
+.main_recommend .recommend {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 0 40px;
+}
+.main_recommend .recommend li {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+  background: #fff url(../images/icon-top0102.png) no-repeat right bottom;
+}
+.main_recommend .recommend li:nth-child(2) {
+  background-color: #f0f0f0;
+  background-image: url(../images/icon_searchResult.png);
+}
+.main_recommend .recommend a {
+  display: block;
+  height: 310px;
+  padding: 30px 25px;
+}
+.main_recommend .recommend em {
+  display: block;
+  font-size: 16px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.main_recommend .recommend em::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 16px;
+  height: 3px;
+  background-color: var(--point--color1);
+}
+.main_recommend .recommend p {
+  font-size: 27px;
+  color: var(--txt-color-600);
+  margin-top: 10px;
+  line-height: 1.2em;
+}
+.main_recommend .recommend strong {
+  color: var(--point--color1);
+}

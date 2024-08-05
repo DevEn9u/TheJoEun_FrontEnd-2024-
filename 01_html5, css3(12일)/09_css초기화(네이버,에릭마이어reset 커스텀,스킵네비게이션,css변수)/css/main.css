@@ -1,0 +1,36 @@
+/* 컬러 변수 */
+/* 자주 사용하는 컬러를 변수로 지정하여 사용. */
+:root {
+  --point--color1: #139b32;
+  --point--color2: #ffce32;
+  --txt-color-400: #999;
+  --txt-color-500: #666;
+  --txt-color-600: #222;
+}
+.main_etc h2 {
+  color: var(--txt-color-600);
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+}
+.main_etc p strong {
+  color:var(--point--color1);
+}
+
+.main_news {
+  height: 300px;
+  /* background: var(--point--color1); */
+}
+.main_news h2 {
+  color: var(--txt-color-600);
+  font-size: 20px;
+}
+
+/* a태그는 브라우저 기본값이 있으므로 컬러 변경시 반드시 적어야 함. */
+.main_news a {
+  border:2px solid red;
+  color: red;
+}
+textarea {
+  width: 300px;
+}

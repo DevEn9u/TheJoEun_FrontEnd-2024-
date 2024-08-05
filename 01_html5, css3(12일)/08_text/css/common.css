@@ -1,0 +1,88 @@
+/* 브라우저 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  /* 여백(padding, border)을 크기 안으로 포함. */
+  box-sizing: border-box
+}
+/* font 축약형 사용 금지: 숨겨진 여러 속성값이 있으므로 모르는 속성이 적용될 수 있음 */
+/* 한글명, 영문명, 서체특징. 영문명을 적는 이유는 mac os에서 한글명을 인식 못하기 때문. 영문명이 띄어쓰기가 없으면 작은따옴표를 붙이지 않고 있으면 붙인다. */
+/* 앞쪽의 폰트가 없을 경우 os별 기본 고딕체로 보여줌. */
+/* 폼요소는 기본폰트가 다르므로 따로 지정 */
+/*일반사이트에서 a 태그 초기화 */
+body, input, textarea, select, button, table {
+  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+  /* 본문 기본 크기 */
+  font-size: 1rem;
+  /* 본문 기본 컬러 */
+  color: #333333;
+  /* 본문 줄 간격을 통일하는 경우 */
+  line-height: 1.5;
+  /* 모바일 디자인에서 영문을 한 글자씩 줄바꿈 */
+  word-break: break-all;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+#wrap {
+  height: 1500px;
+}
+.main_etc {
+  /* width: 700px; */
+  height: 400px;
+  border: 4px solid red;
+  margin: 0 auto;
+}
+.main_etc h2 {
+  /* 한글을 한 단어씩 줄바꿈(큰 제목에 사용함) */
+  word-break: keep-all;
+  /* 단어의 길이가 부모 가로보다 길 경우 한 글자씩 내려감 */
+  word-wrap: break-word;
+  font-size: 50px;
+  text-align: center;
+  /* 밑줄을 꾸미지는 않는다. 웹에서 밑줄을 이용해서 꾸미는 경우는 ::before이나 ::after을 이용함. */
+  text-decoration: underline;
+  color: red;
+  /* 자간: font size에 대한 상대단위(em) 사용해야 함. */
+  /* 피그마에서 자간이 -5%이면, CSS에서는 -0.05em */
+  /* letter-spacing: 1em; */
+  /* em에서 숫자는 %를 의미. */
+}
+.main_etc .link_wrap {
+  /* 글자 취급요소(inline, inline-block/태그도 될 수 있음)를 가운데 정렬 */
+  text-align: center;
+}
+.main_etc .link_wrap a {
+  border: 1px solid black;
+  display: inline-block;
+  /* 좌우로 배치된 인라인요소의 높이가 다를 경우 요소끼리의 수직 정렬 */
+  vertical-align: middle;
+}
+.main_etc .link_wrap a:nth-child(2) {
+  height: 100px;
+}
+.main_etc .link_wrap a:nth-child(3) {
+  height: 80px;
+}
+.main_etc p {
+  /* 줄간격은 em을 사용하고 em이 default값이라 생략 가능. */
+  line-height: 2;
+  font-size: 30px;
+}
+.main_etc .test_btn {
+  /* 기본값 */
+  box-sizing: content-box;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  padding: 0 20px;
+  /* text-align: left; */
+  /* text-indent: 들여쓰기(양수) 내어쓰기(음수) */
+  /* text-indent: 20px; */
+  /* 줄간격으로 높이 잡을 때 line-height를 px 사용 */
+  line-height: 48px;
+  border: 10px solid blue;
+}

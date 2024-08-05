@@ -1,0 +1,14 @@
+.app button {
+  margin: 20px;
+}
+.input_area {
+  border-top: 1px solid #ddd;
+  padding: 20px;
+}
+
+.app div + div {
+  margin-top: 20px;
+}
+.app p {
+  margin-top: 20px;
+}

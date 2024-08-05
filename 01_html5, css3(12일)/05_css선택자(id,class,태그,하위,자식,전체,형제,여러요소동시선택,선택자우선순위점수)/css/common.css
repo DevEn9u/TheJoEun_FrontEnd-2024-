@@ -1,0 +1,56 @@
+
+/* 브라우저 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* 동시선택자 */
+h2, h3, h4, h5 {
+  font-size: 2rem;
+  color: red;
+}
+
+/* 아이디 선택자: 100점  */
+#header {
+  width: 1200px;
+  height: 100%;
+  border: 5px solid red;
+}
+/* 하위선택자  */
+/* !important: 10000점, 인라인스타일을 덮어씌울때만 사용 */
+#header .logo {
+  border: 6px solid black !important;
+}
+/* 클래스 선택자: 10점, 아이디 선택자가 우선! */
+/* .logo {
+  border: 3px solid yellowgreen;
+} */
+/* 자식 선택자 '>': 부모의 직계 자식만 선택 */
+#header .gnb>li {
+  border: 2px solid red;
+  border-collapse: collapse;
+}
+#header .gnb>li>a {
+  background-color: yellowgreen;
+}
+#header .gnb .depth2 li {
+  border: 1px solid black;
+}
+/* 태그선택자: 1점, 속성선택자(input의 type같은 것들): 폼요소 선택시 사용 */
+/* 인접 형제 선택자 '+':같은 부모에서 나온 형제중 이어져서 바로 나온 하나만 선택 */
+input[type="checkbox"] + label {
+  color: blue;
+}
+
+
+
+
+/* ul {
+  list-style: none;
+}
+a:visited {
+  color: green;
+}
+a:hover {
+  color: yellowgreen;
+} */

@@ -1,0 +1,127 @@
+:root {
+  --point--color1: #c30606;
+  --point--color2: #907354;
+  --txt-color-400: #999;
+  --txt-color-500: #666;
+  --txt-color-600: #222;
+}
+
+#wrap {
+  height: 1500px;
+  min-width: 1260px;
+}
+
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(52,52,54,1);
+  width: 100%;
+  z-index: 9999;
+  min-width: 1260px;
+}
+#header .inner {
+  width: 1180px;
+  height: 100px;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+#header .gnb_wrap {
+margin-left: 80px;
+}
+#header .gnb {
+  display: flex;
+}
+#header .gnb>li {
+  /* border: 2px solid red; */
+  padding: 0 15px;
+  /* .depth2에 적용된 absolute의 기준 */
+  position: relative;
+}
+#header .gnb>li>a {
+  display: block;
+  color: #fff;
+  font-family: 'Akrobat';
+  font-size: 19px;
+  line-height: 100px;
+  letter-spacing: 0.12em;
+  position: relative;
+}
+#header .gnb>li>a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  background-color: #be161e;
+  width: 100%;
+  height: 3px;
+  display: none;
+}
+#header .gnb>li:hover>a::after {
+  display: block;
+}
+#header .gnb>li:hover .depth2 {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 서브메뉴 스타일 */
+#header .gnb .depth2 {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 28px 30px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+#header .gnb .depth2 li + li {
+  margin-top: 15px;
+}
+#header .gnb .depth2 a {
+  color: #fff;
+}
+
+/* 로그인 스타일 */
+#header .login {
+  margin-left: auto;
+  display: flex;
+  gap: 0 20px;
+}
+#header .login a {
+  display: block;
+  color: var(--txt-color-400);
+  font-size: 13px;
+  line-height: 30px;
+  /* border: 3px solid yellow; */
+}
+#header .login .join a {
+  color: #fff;
+  width: 86px;
+  background-color: #555;
+  text-align: center;
+}
+
+/* 메인 스타일 */
+#container {
+  margin-top: 100px;
+}
+.main_slider {
+  height: 900px;
+  position: relative;
+  overflow: hidden;
+}
+.main_slider a {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+.main_slider img {
+  max-width: none;
+}

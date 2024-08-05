@@ -1,0 +1,89 @@
+li에서
+v-for="(item, index) in data.items
+
+for문으로 item이 객체로 들어와있는데
+item은 id, text, completed
+
+
+
+깃헙 pr방식 repository 생성 설정
+1. 이슈탬플릿 settings > Generals > Features > Issues > Set up templates
+이슈탬플릿 만들 떄
+깃허브라는 원격저장소에서 만든 것을 원격저장소에서의 commit change한다.
+
+2. settings> Generals > Pull Requests > Automatically delete head branches 체크
+
+3. Branch protection rule
+settings> Branches
+name은 main
+Protect matching branches 에서 Require a pull request before merging 체크 
+아래 Create 눌러야함
+
+4. 연결하려는 폴더와 깃 연결 해야함
+git init 
+하게 되면 폴더에 .git 폴더가 생기는데, 이것이 로컬 저장소를 의미하고 commit하는 내역이 .git 폴더에 들어감
+
+git remote add origin 원격저장소 url(깃허브 repository 주소)
+origin(원격 저장소 별칭)
+
+git remote -v
+원격 저장소 주소 확인
+
+5. 이후 .github/ISSUE_TEMPLATE 폴더가 원격저장소에 commit 된 상태임.
+로컬 저장소에 동기화를 해줘야하기 때문에 cmd에서 pull
+(이건 작업하기 전에 항상 매번 해줘야하는 것)
+git pull origin main
+하게 되면 폴더에 .github 폴더가 생겨남
+
+6. 원격 저장소에 main branch가 있기 때문에 로컬 연결 이후 branch 있는지 확인
+git branch
++ 처음에 git init을 하면 branch 는 없는데, commit을 하거나 원격 저장소에 있는 걸 가져오면 branch가 생겨남
+
+7. 작업 하는 branch를 만들어야 함
+git switch branch명 : 해당 branch로 이동
+git switch -c branch명: branch 생성하고 이동
+git switch -c feature/vue-todo
+이후 git branch로 제대로 생성되고 이동되었는지 확인
+
+8. 수정된 내역을 stage에 추가
+git add .
+하게 되면 파일이 U 상태에서 A 상태로 바뀜
+여기서 node_modules 패키지는 언제든 다운 가능하기 때문에 깃에 올릴 필요가 없고 dist배포폴더도 올릴 피요가 없어
+.gitignore파일이 올라가지 않게 해줌
+
+9. 깃허브에서 이슈 생성
+issues에서 뉴 이슈 만들고, commit 메세지 템플릿 에서 번호와 동일하게 해야함  
+그러면 todo list 작업완료 #1이라는 이슈가 만들어짐
+
+10. stage에 추가 한 것을 commit해야 로컬 저장소에 저장됨
+git commit
+하고 feat: todo list 작업완료 #1
+작성하고 닫기
+
+11. push
+git push -u origin feature/vue-todo
+-u는 upstream. 처음에는 어디에 push를 해야할 지 적어줘야함. 한번만 해주면 그 이후에는 git push만 입력하면 됨
+
+12. 깃허브로 오면  pr이 나오고 description에 resolve#번호 입력
+resolve#번호 입력하면 자동으로 issue 닫힘
+create pull request 클릭
+Merge without waiting for requirements to be met (bypass branch protections) 클릭 하고
+Merge pull request 클릭
+Confirm merge 클릭
+
+13. feature branch와 main branch가 merge(병합)됐음을 확인
+로컬에서는 main과 feature가 있고 원격에서는 병합으로 인해 main만 있음
+이것을 동기화 해주어야 함
+
+14. 로컬에서 branch 확인
+git branch하면 feature/vue-todo
+
+15. 메인으로 이동
+git switch main
+
+16. 병합
+git merge feature/vue-todo
+
+17. 더이상 feature branch는 필요하지 않으니 삭제
+git branch -d 브랜치명
+git branch -d feature/vue-todo

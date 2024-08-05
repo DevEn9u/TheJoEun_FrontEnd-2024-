@@ -1,0 +1,27 @@
+prop 전달받는 방법
+1. 객체구조분해로 하나 하나 받아오는 방법
+
+
+2. props로 한번에 객체 타입으로 가져오는 방법
+부모가 전달 받을 함수를 한번에 가져옴
+export default function Profile(props) {
+
+}
+
+props는 전체 객체
+children을 받아올 때는 {} 넣어줘야함
+하나 하나 받아올 때는 {} 안에 넣어서 객체 구조분해로 받아옴
+
+prop: 함수를 실행할 때 전달할 것
+prop 안에 이름을 붙일 수 있는데
+<Card className="card2">, 여기서 className은 js에서 className과 다른 것임. 뭐든 올 수 있다.
+
+
+
+
+key prop은 React가 기억을 하게 하기 위해 적는 것
+
+
+
+
+컴포넌트에서 이중괄호는 JSX 중괄호 안의 객체라고 기억!

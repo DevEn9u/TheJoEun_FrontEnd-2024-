@@ -1,0 +1,80 @@
+:root {
+  --point--color1: #03c75a;
+  --point--color2: #9858f5;
+  --txt-color-400: #404040;
+  --txt-color-500: #101010;
+  --txt-color-600: #080808;
+}
+
+#wrap {
+  height: 1500px;
+}
+
+#header .inner {
+  /* 태블릿 여백 좌우 30씩 추가 1280 -> 1340 */
+  max-width: 1340px;
+  height: 267px;
+  margin: 0 auto;
+  border: 2px solid red;
+  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header .search_area {
+  /* 반응형이 아니라면 width, 반응형으로 만들어서 줄어들게 하려면 max-width */
+  max-width: 706px;
+  /* flex로 인해 width가 내용이 없어 줄어듬, 100% 지정 */
+  width: 100%;
+  border: 1px solid #ff93aa;
+  /* border-radius는 height의 반, 여기서는 58+2기 때문에 30 지정. */
+  border-radius: 30px;
+
+}
+#header .search_area .search_wrap {
+  padding-left: 28px;
+  display: flex;
+  justify-content: space-between;
+}
+/* input 태그는 type별로 디자인이 동일하므로 class명 부여하지 않고 type을 선택하는 속성선택자 사용 */
+#header .search_area .search_wrap input[type=search] {
+  /* border 상하 1px 포함 60px로 만들겠다는 의도 */
+  height: 58px;
+  /* original page에서 2rem인데, html이 10.5px이니 21px로 지정 */
+  color: #000;
+  font-size: 21px;
+  width: 100%;
+  max-width: 480px;
+  border: none;
+}
+#header .search_area .search_wrap input[type=search]::placeholder {
+  opacity: 0;
+}
+#header .search_area .search_wrap input[type=search]:focus::placeholder {
+  opacity: 1;
+}
+
+#header .search_area .search_btn {
+  height:58px;
+  padding: 0 27px 0 10px;
+  border: none;
+  background: none;
+}
+#header .search_area .search_btn::after {
+  content: '';
+  width: 25px;
+  height: 25px;
+  /* border: 1px solid red; */
+  display: flex;
+  background: url(../images/search_icn.svg) no-repeat 0 0 / 25px;
+  /* svg 배경 컬러 변경하기 */
+  /* -webkit-mask: url(../images/search_icn.svg) no-repeat 0 0 / 25px;
+  mask: url(../images/search_icn.svg) no-repeat 0 0 / 25px;
+  background: var(--point--color1); */
+}
+
+@media screen and (max-width: 768px) {
+  .main_slider {
+    height: 650px;
+  }
+}

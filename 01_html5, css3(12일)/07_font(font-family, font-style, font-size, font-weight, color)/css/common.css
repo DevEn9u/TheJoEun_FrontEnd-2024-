@@ -1,0 +1,44 @@
+/* 브라우저 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+}
+/* font 축약형 사용 금지: 숨겨진 여러 속성값이 있으므로 모르는 속성이 적용될 수 있음 */
+/* 한글명, 영문명, 서체특징. 영문명을 적는 이유는 mac os에서 한글명을 인식 못하기 때문. 영문명이 띄어쓰기가 없으면 작은따옴표를 붙이지 않고 있으면 붙인다. */
+/* 앞쪽의 폰트가 없을 경우 os별 기본 고딕체로 보여줌. */
+/* 폼요소는 기본폰트가 다르므로 따로 지정 */
+/*일반사이트에서 a 태그 초기화 */
+body, input, textarea, select, button, table {
+  font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", helvetica, "Apple SD Gothic Neo", sans-serif;
+  /* 본문 기본 크기 */
+  font-size: 1.0rem;
+  /* 본문 기본 컬러 */
+  color: #666666;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+wrap {
+  height: 1500px;
+}
+.main_etc {
+  width: 1200px;
+  height: 400px;
+  border: 4px solid red;
+  margin: 0 auto;
+}
+.main_etc h2 {
+  /* 폰트굵기는 숫자로만 지정, 폰트마다 모두 다름 */
+  font-size: 50px;
+  font-weight: 400; /* regular weight */
+  font-weight: 500; /* medium weight */
+  font-weight: 700; /* bold weight = bold */
+  font-weight: 900; /* black weight */
+  font-weight: 400;
+}
+.main_etc p {
+  font-style: italic;
+  color: red;
+}

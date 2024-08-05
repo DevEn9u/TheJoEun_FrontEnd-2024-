@@ -1,0 +1,102 @@
+:root {
+  --point--color1: #5d7d2b;
+  --point--color2: #c7b19b;
+  --txt-color-400: #999;
+  --txt-color-500: #6b7376;
+  --txt-color-600: #05141f;
+}
+
+body {
+  font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  /* color: var(--point--color1); */
+}
+
+#wrap {
+  /* viewport와 동일 보통 가로크기+60px */
+  min-width: 1320px;
+  height: 1500px;
+}
+
+.main_channel {
+  /* img 파일의 높이 */
+  height: 370px;
+  background: url(../images/img_main_channer.jpg) no-repeat center top / cover;
+  padding-top: 75px;
+}
+.main_channel .inner {
+  /* border: 1px solid red; */
+  width: 1260px;
+  margin: 0 auto;
+}
+.main_channel .tit_wrap {
+  color: #fff;
+  text-align: center;
+}
+.main_channel .tit_wrap h2 {
+  font-size: 38px;
+  /* p태그에 margin-top을 넣어줘도 되지만 여기서는 p에 대한 스타일 속성을 지정하지 않았기 때문에 편리함을 위해 h2 태그에 margin-bottom 적용 */
+  margin-bottom: 15px;
+}
+.main_channel .channel {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.main_channel .channel a {
+  /* inline: a, span, em, strong, label, b, i, u(글자와 동일)
+  inline-block: img, 폼요소(input, select, button, textarea), video, iframe
+  block: 나머지
+   */
+   /* display: block으로 처음에 설정했다가, ::after을 수직정렬하기 위해 flex로 변경 */
+  /* border: 2px solid yellow; */
+  display: flex;
+  align-items: center;
+  height: 64px;
+  width: 84px;
+}
+.main_channel .channel a::after {
+  /* ::before, ::after은 inline element */
+  content: '';
+  /* border: 2px solid white; */
+  /* flex를 적용해 내용만큼 넓이가 비례하기 때문에, 내용이 없으니 100% 지정 */
+  width: 100%;
+  height: 28px;
+  background: url(../images/icon_channer_sns.png) no-repeat 0 -64px;
+
+}
+.main_channel .channel li:nth-child(2) a {
+  width: 80px;
+}
+.main_channel .channel li:nth-child(3) a {
+  width: 70px;
+}
+.main_channel .channel li:nth-child(4) a {
+  width: 57px;
+}
+.main_channel .channel li:nth-child(5) a {
+  width: 54px;
+}
+.main_channel .channel li:nth-child(6) a {
+  width: 54px;
+}
+.main_channel .channel li:nth-child(2) a::after {
+  height: 20px;
+  background-position: -82px 0;
+}
+.main_channel .channel li:nth-child(3) a::after {
+  height: 64px;
+  background-position: -254px 0;
+}
+.main_channel .channel li:nth-child(4) a::after {
+  height: 52px;
+  background-position: -334px 0;
+}
+.main_channel .channel li:nth-child(5) a::after {
+  height: 54px;
+  background-position: -402px 0;
+}
+.main_channel .channel li:nth-child(6) a::after {
+  height: 54px;
+  background-position: -466px 0;
+}

@@ -1,0 +1,120 @@
+:root {
+  --point--color1: #5dc591;
+  --point--color2: #907354;
+  --txt-color-400: #969696;
+  --txt-color-500: #565656;
+  --txt-color-600: #191919;
+}
+
+#wrap {
+  height: 2000px;
+}
+
+/* 문자열선택자, class가 box_wrap으로 시작하는 요소 전부 선택 */
+[class*=box_wrap] {
+  width: 1200px;
+  height: 200px;
+  border: 2px solid red;
+  margin: 0 auto;
+  position: relative;
+}
+[class*=box_wrap] .box {
+  width: 100px;
+  height: 100px;
+  /* animation 적용시 띄워서 적용 */
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url(../images/character.png) no-repeat left top / contain;
+}
+.box_wrap .box {
+  /* transition: property(all or 개별속성) duration(걸리는 시간) [ease] delay(지연) */
+  /* ease가 default이며 처음은 느리고 중간에 빠르다가 종료지점에서 느려짐 */
+  /* 반복 animation에서 ease-in-out 사용(자연스러움) */
+  transition: transform 1s;
+}
+.box_wrap:hover .box {
+  transform: translate(1100px);
+  /* transition을 hover에 적용하면 hover를 해제했을 때 transition 없이 바로 원상복귀 되고 hover가 아닌 요소에 적용하면 hover를 해제해도 transition이 적용된다. 또는 둘다 다른 값을 적용시킬 수 있다. */
+  transition: transform 3s;
+}
+
+.box_wrap2 .box {
+  transition: all 1s;
+}
+.box_wrap2:hover .box {
+  /* transform: translate(800px, 100px) rotateZ(-450deg) scaleX(2) scaleY(2) skew(45deg); */
+  transform: rotate(360deg);
+  transform-origin: left top;
+}
+
+/* 자동 animation */
+/* use camel case with verb and noun on keyframes function */
+@keyframes moveCharacter {
+  /* 지정시간의 50% */
+  /* 0%와 100%는 처음임. animation이 진행되는 시점, 진행이 다끝났을 때 시점 */
+  /* 만약 100%의 위치를 다르게 지정하고 싶다면 animation-fill-mode: forwards를 작성해주면 된다. */
+  50% {
+    transform: translate(0, 100px);
+  }
+  100% {
+    transform: translate(200px, 100px);
+  }
+}
+.box_wrap3 .box {
+  /*   animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: moveCharacter 2s;
+  /* keyframe 100%에서 0%로 돌아가게 되며 시작지점을 바꿔줌 */
+  animation-fill-mode: forwards;
+}
+
+/* Q. 짱구를 .box_wrap 안쪽에서 반복적으로 모든 모서리를 시계방향으로 이동시키시오 */
+@keyframes quizMove{
+  40% {
+    transform: translate(1100px, 0);
+  }
+  50% {
+    transform: translate(1100px, 100px);
+  }
+  90% {
+    transform: translate(0, 100px);
+  }
+}
+.box_wrap4 .box {
+  animation: quizMove 3s /*infinite*/;
+}
+
+
+.box_wrap5 {
+  height: 300px;
+}
+.box_wrap5 .clock {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  /* border: 2px solid red; */
+  width: 100px;
+  transform: rotateZ(45deg);
+  transform-origin: center top;
+  animation: rotateClock 2s ease-in-out infinite;
+}
+
+@keyframes rotateClock{
+  50% {
+    transform: rotate(-45deg);
+  }
+}
+
+.box_wrap5 .clock .line {
+  width: 4px;
+  height: 100px;;
+  background: black;
+  margin: 0 auto;
+}
+.box_wrap5 .clock .box2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background: url(../images/character.png) no-repeat center center / contain;
+}

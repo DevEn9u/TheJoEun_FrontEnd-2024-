@@ -1,0 +1,100 @@
+:root {
+  --point--color1: #ff601e;
+  --point--color2: #feb12d;
+  --txt-color-400: #888;
+  --txt-color-500: #666;
+  --txt-color-600: #000;
+}
+#wrap {
+  height: 2000px;
+  min-width: 1280px;
+}
+.main_visual {
+  height: 560px;
+  border: 3px solid #ff6012;
+  background: url(../images/image_1.jpg) no-repeat center top;
+}
+/* 바깥쪽 100%를 항상 놔두고 안쪽 inner class를 지정하여 가로길이 지정하기 */
+/* 바깥쪽에 디자인이 추가되는 경우가 매우 많음. -> 수정이 용이하게끔 만들어야함 */
+/* 요소 이동시 부모 요소를 이동하면 안쪽 요소도 같이 이동함 */
+.main_intro {
+  margin-top: -58px;
+}
+.main_intro .inner {
+  width: 1200px;
+  height: 500px;
+  border: 3px solid red;
+  margin: 0 auto;
+}
+.main_intro .txt_wrap {
+  padding: 45px 0;
+  background-color: white;
+}
+.main_intro .txt_wrap p {
+  font-size: 24px;
+  text-align: center;
+  color:var(--txt-color-600)
+}
+.main_intro .txt_wrap p strong {
+  color:var(--point--color1);
+  font-weight: 700;
+}
+.main_intro .intro {
+  display: flex;
+  /* 좌우 사이 간격 */
+  gap: 0 6px;
+}
+
+/* width는 바깥 태그, height는 안에 있는 태그에 적용시키면 같이 커짐(공식) */
+.main_intro .intro li {
+  width: calc(100% / 3);
+  background: rgb(247, 243, 243);
+}
+.main_intro .intro li.active {
+  background: url(../images/bg-home-type.png);
+  box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.2);
+}
+.main_intro .intro li.active .tit{
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.main_intro .intro li.active .txt{
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+/* 아래쪽에 선언한 선택자보다 점수를 올리기위해 #container 사용 */
+#container .main_intro .intro li.active a::before {
+ background-position-x: -54px;
+}
+.main_intro .intro li a {
+  height: 178px;
+  /* border: 1px solid red; */
+  display:block;
+  padding: 43px 15px 0 130px;
+  position: relative;
+}
+/* 아이콘 스타일 */
+.main_intro .intro li a::before { 
+  content: '';
+  position: absolute;
+  left: 40px;
+  top: 40px;
+  /* border: 1px solid red; */
+  width: 45px;
+  height: 42px;
+  background: url(../images/ico-home-type.png) no-repeat 0 3px;
+}
+.main_intro .intro li:nth-child(2) a::before {
+  background-position: 0 -40.5px;
+}
+.main_intro .intro li:nth-child(3) a::before {
+  background-position: 0 -83px;
+}
+.main_intro .intro li .tit {
+  font-size: 24px;
+  color: var(--txt-color-600);
+  margin-bottom: 15px;
+}
+.main_intro .intro li .txt {
+  font-size: 15px;
+}

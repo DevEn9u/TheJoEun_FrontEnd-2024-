@@ -1,0 +1,114 @@
+:root {
+  --point--color1: #bb0841;
+  --point--color2: #2be283;
+  --txt-color-400: #777;
+  --txt-color-500: #555;
+  --txt-color-600: #000;
+}
+/* main페이지와 sub페이지의 header의 높이가 다르므로 sub 공통 클래스로 sub페이지에만 적용   */
+.sub_container {
+  padding-top: 120px;
+}
+.sub_visual {
+  height: 265px;
+  background: url(../images/visual_investment_ir_cr.jpg) no-repeat center top / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sub_tit {
+  margin-top: -40px;
+}
+.sub_tit h2 {
+  font-size: 46px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sub_tab {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+.sub_tab li {
+  /* 각 페이지마다 li의 개수가 다를 수 있으니 calc()를 사용하지 않고 100%로 늘리면 개수에 따라 알아서 줄어듬 */
+  width: 100%;
+  border: 1px solid #ddd;
+  border-right: none;
+}
+.sub_tab li:last-child {
+  border-right: 1px solid #ddd;
+}
+.sub_tab li a {
+  display: block;
+  line-height: 60px;
+  text-align: center;
+}
+.sub_tab li.active {
+  border-color: var(--point--color1);
+}
+.sub_tab li.active a {
+  color: #fff;
+  background: var(--point--color1);
+}
+
+/* contents */
+.contents {
+  padding: 60px 0 100px;
+}
+.contents .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+  height: 900px;
+  position: relative;
+}
+
+/* IR정보 페이지 */
+.annual .tit {
+  font-size: 26px;
+  color: var(--txt-color-600);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+
+/* 태블릿 분기점 */
+@media (max-width: 1200px) {
+  .sub_container {
+    padding-top: 101px;
+  }
+  .sub_tab a {
+    line-height: 45px;
+    font-size: 15px;
+  }
+
+  .contents {
+    padding: 30px 0 40px;
+  }
+
+  .annual .tit {
+    padding: 0 15px;
+    font-size: 20px;
+  }
+}
+
+
+
+/* 모바일 분기점 */
+@media (max-width: 767px) {
+  .sub_visual {
+    height: 155px;
+  }
+  .sub_tit {
+    margin-top: 0;
+  }
+  .sub_tit h2 {
+    font-size: 26px;
+  }
+  .sub_tab a {
+    line-height: 45px;
+    font-size: 15px;
+  }
+  
+}

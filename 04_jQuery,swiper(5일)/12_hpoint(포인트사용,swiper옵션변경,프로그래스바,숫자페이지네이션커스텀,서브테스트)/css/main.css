@@ -1,0 +1,208 @@
+:root {
+  --point--color1: #4e2bf4;
+  --point--color2: #dd3175;
+  --txt-color-400: #999;
+  --txt-color-500: #333;
+  --txt-color-600: #111;
+}
+
+#wrap {
+  height: 2000px;
+}
+
+
+.main_use {
+  padding: 130px 0 180px;
+  background: #fafafa;
+}
+.main_use .inner {
+  max-width: 1284px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.main_tit {
+  display: flex;
+  align-items: flex-end;
+  gap: 0 40px;
+}
+.main_tit h2 {
+  font-family: 'HG', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--txt-color-600);
+}
+.main_tit p {
+  font-size: 20px;
+  color: var(--txt-color-500);
+  margin-bottom: 6px;
+}
+
+.main_use .swiper {
+  /* 원 페이지에서는 margin을 이용하였고 또 padding을 주었으나 위로 올라갔을 때 가려지지 않게 하고 한번에 padding을 주기 위해 padding으로 한번에 처리 */
+  padding-top: 55px;
+}
+.main_use .swiper .swiper-slide a {
+  /* inline element는 translate가 작동하지 않음 */
+  display: block;
+  transition: all 0.3s;
+}
+.main_use .swiper .img_wrap {
+  /* border: 1px solid black; */
+  overflow: hidden;
+  border-radius: 16px;
+}
+.main_use .swiper .img_wrap img {
+  transition: all 0.5s;
+}
+
+/* 태블릿, 데스크톱에서만 hover 작동 */
+@media (min-width: 768px) {
+  .main_use .swiper .swiper-slide:hover a {
+    transform: translateY(-10px);
+  }
+  .main_use .swiper .swiper-slide:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.main_use .swiper .tit_wrap {
+  /* 배경색이 들어갈 수 있기 때문에 margin이 아닌 padding 적용 */
+  padding-top: 35px;
+}
+.main_use .swiper h3 {
+  font-family: 'HG', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--txt-color-600);
+  text-align: center;
+}
+.main_use .swiper p {
+  font-family: 'HG', sans-serif;
+  font-size: 18px;
+  color: var(--txt-color-400);
+  text-align: center;
+  margin-top: 12px;
+  letter-spacing: -0.8px;
+}
+
+.main_use .swiper .btn_wrap {
+  display: none;
+}
+.main_use .swiper .swiper-pagination {
+  display: none;
+}
+
+
+
+
+/* 태블릿 분기점 */
+@media (max-width: 1200px) {
+  .main_use {
+    padding: 120px 0 150px;
+  }
+}
+
+
+/* 모바일 분기점 */
+@media (max-width: 767px) {
+  .main_use {
+    padding: 70px 0;
+  }
+  .main_use .inner {
+    padding: 0 20px;
+  }
+
+  .main_tit {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main_tit h2 {
+    font-size: 28px;
+  }
+  .main_tit p {
+    font-size: 14px;
+    margin: 10px 0 0;
+  }
+  /* 음수마진으로 좌우 여백만큼 강제로 늘림 */
+  .main_use .swiper {
+    margin: 0 -20px;
+  }
+  .main_use .swiper-slide {
+    width: calc(100% - 40px);
+  }
+  .main_use .swiper .img_wrap img {
+    width: 100%;
+  }
+
+  .main_use .swiper .tit_wrap {
+    padding-top: 20px;
+  }
+  .main_use .swiper .tit_wrap h3 {
+    text-align: left;
+    font-size: 20px;
+  }
+  .main_use .swiper .tit_wrap p {
+    text-align: left;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .main_use .swiper .btn_wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    padding: 0 20px;
+    gap: 0 15px;
+  }
+  .main_use .swiper .swiper-pagination {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 1px;
+    background: #ccc;
+    
+  }
+  .main_use .swiper .swiper-pagination-progressbar-fill {
+    background: var(--txt-color-600);
+  }
+  .main_use .swiper .num {
+    font-family: 'HG', sans-serif;
+    font-weight: 800;
+    font-size: 11px;
+    color: #ccc;
+    display: flex;
+    gap: 0 7px;
+  }
+  .main_use .swiper .current {
+    color: var(--txt-color-600);
+  }
+
+  .main_use .autoplay_btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+  }
+  .main_use .autoplay_btn::after {
+    content: '';
+    width: 2px;
+    height: 10px;
+    background: #ccc;
+    /* 그림자를 이용해 선 만들기. 콤마를 이용하면 여러개 만들 수 있음 */
+    box-shadow: 5px 0 0 #ccc;
+    margin-left: -5px;
+  }
+  .main_use .autoplay_btn.on::after {
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-left-color: #ccc;
+    box-shadow: none;
+    background: none;
+    margin-left: 4px;
+  }
+}

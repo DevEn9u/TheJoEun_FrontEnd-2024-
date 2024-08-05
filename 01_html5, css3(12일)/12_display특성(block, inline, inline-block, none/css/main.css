@@ -1,0 +1,42 @@
+:root {
+  --point--color1: #ff601e;
+  --point--color2: #feb12d;
+  --txt-color-400: #888;
+  --txt-color-500: #666;
+  --txt-color-600: #000;
+}
+#wrap {
+  height: 1500px;
+}
+#header {
+  /* height: 100px; */
+  width: 600px;
+  border: 4px solid red;
+  margin-top: 20px;
+  padding-top: 22.5px;
+}
+#header a {
+  border: 1px solid black;
+  /* height, width 지정 불가 */
+  margin-right: 30px;
+  padding-right: 50px;
+  margin-top: 20px;
+  /* margin상하 지정 안됨. */
+  /* padding-top: 20px; 
+  지정은 가능하나, 위에 위치한 element를 가리게 되기 때문에 지정하지 않는다.*/
+  /* display 변경 가능 */
+  display: inline-block;
+}
+#header #txt {
+  margin-top: 20px;
+}
+#header button {
+  height: 50px;
+  color: #ff601e;
+  margin-top: 30px;
+  padding-top: 20px;
+  /* display: none; */
+}
+#header button:hover {
+  display: none;
+}

@@ -1,0 +1,23 @@
+#header {
+  /* 높이, 길이등의 %단위는 부모의 크기를 기준으로 함. */
+  width: 50%;
+  height: 700px;
+}
+/* 클릭요소에 탭키로 포커스 이동시 외곽선이 생기며(키보드 접근성) 끌 수 있음. */
+#header .logo a {
+  outline: none;
+}
+#header .txt {
+  font-size: 2rem;
+  /* 축약형 */
+  border: 5px solid red;
+  /* 개별속성 */
+  border-top: none;
+  /* border-bottom: 10px dashed skyblue; */
+  /* 값을 생략할 수 있지만 안되는 경우도 있으니 생략하지 말것 */
+  /* 색은 16진수, 헥사코드 사용 */
+  /* 두자리가 같을 경우 하나로 축약 가능. #0000ff = #00f */
+  border-bottom: 10px solid #00f;
+  /* 마지막 자리는 %를 의미, 0 ~ 1까지의 수 중 소수 두자리 가능. */
+  border-top: 10px solid rgba(0, 0, 0, 0.55);
+}
